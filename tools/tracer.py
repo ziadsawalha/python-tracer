@@ -1,11 +1,5 @@
 #!/usr/bin/env python
 # vim: tabstop=4 shiftwidth=4 softtabstop=4
-
-# Copyright 2010 United States Government as represented by the
-# Administrator of the National Aeronautics and Space Administration.
-# Copyright 2011 OpenStack LLC.
-# All Rights Reserved.
-#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -19,22 +13,26 @@
 #    under the License.
 #
 # Author: Ziad Sawalha (http://launchpad.net/~ziad-sawalha)
+# Original maintained at: https://github.com/ziadsawalha/Python-tracer
+#
 
 """
-Call Tracing Tool
+Python Call Tracing Tool
 
 To use this:
-1. include the tools diretory in your project (__init__.py and tracer.py)
-2. import tools.tracer as early as possible into your module
-3. add --trace-calls to any argument parsers you use so the argument doesn't get
-flagged as invalid.
+1. include the tools directory in your project (__init__.py and tracer.py)
+2. import [project].common.tracer as early as possible into your module
+3. add --trace-calls or -t to any argument parsers if you want the argument
+to be shown in the usage page
 
 Usage:
-# Add this as early as possible in the first module called in your service
-import tools.tracer   #load this first
+Add this as early as possible in the first module called in your service::
 
-If a '--trace-calls' parameter is found, it will trace calls to the console and
-space them to show the call graph.
+    import checkmate.common.tracer  # @UnusedImport # module runs on import
+
+If a '-t' or '--trace-calls' parameter is found, it will trace calls to stdout
+and space them to show the call graph. Exceptions (errors) will be displayed in
+red.
 
 """
 
